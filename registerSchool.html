@@ -5,6 +5,10 @@
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+    <!--城市联动必要样式-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/city-picker.css" rel="stylesheet" type="text/css" />
     <title>欢迎注册成为秋名山驾校用户</title>
 </head>
     <style>
@@ -25,9 +29,9 @@
     </div>
 
     <!--基本信息填写-->
-    <div class="container"  style="border: 1px solid black">
+    <div class="container" style="border: 1px solid black" >
         <!--进度条-->
-        <div class=" col-md-offset-3 col-md-6" style="border: 1px solid red" >
+        <div class=" col-md-offset-3 col-md-6" >
             <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuemin="0" aria-valuemax="100"  style="width: 33.3%">
                     Step1:基本信息
@@ -39,12 +43,10 @@
                     Step3：上传相关证件
                 </div>
             </div>
-
-            <!--<div class="col-md-4 " style="border: 1px saddlebrown solid;margin-top: -20px"><p>step1:填写基本信息</p></div>-->
         </div>
 
 
-        <form class="form-horizontal" role="form" style="border: 5px solid green" >
+        <form class="form-horizontal" role="form" >
 
             <div class="form-group ">
                 <div class="col-md-6 col-md-offset-3"  >
@@ -130,9 +132,9 @@
     <!--驾校详情填写-->
     <div class="container"  style="border: 1px solid black">
         <!--进度条-->
-        <div class=" col-md-offset-3 col-md-6" style="border: 1px solid red" >
+        <div class=" col-md-offset-3 col-md-6">
             <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuemin="0" aria-valuemax="100"  style="width: 33.3%">
+                <div class="progress-bar progress-bar-striped progress-bar-success " role="progressbar" aria-valuemin="0" aria-valuemax="100"  style="width: 33.3%">
                     Step1:基本信息
                 </div>
                 <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuemin="0" aria-valuemax="100"  style="width: 33.3%">
@@ -144,14 +146,30 @@
             </div>
         </div>
 
-
-        <form class="form-horizontal" role="form" style="border: 5px solid green" >
+        <form class="form-horizontal" role="form"  >
+            <div class="form-group ">
+                <div class="col-md-6 col-md-offset-3"  >
+                    <label class="col-md-3 col-md-offset-2 control-label" for="InputCompanyName">驾校所属公司名</label>
+                    <div class="col-md-4" data-toggle="tooltip" title="请填写工商局注册的公司名称"  data-placement="right">
+                        <input class="form-control" name="InputCompanyName" type="text" placeholder="Company Name" id="InputCompanyName">
+                    </div>
+                </div>
+            </div>
 
             <div class="form-group ">
                 <div class="col-md-6 col-md-offset-3"  >
-                    <label class="col-md-3 col-md-offset-2 control-label" for="InputCompanyName">公司名称</label>
-                    <div class="col-md-4" data-toggle="tooltip" title="请填写工商局注册的公司名称"  data-placement="right">
-                        <input class="form-control" name="InputCompanyName" type="text" placeholder="Company Name" id="InputCompanyName">
+                    <label class="col-md-3 col-md-offset-2 control-label" for="InputCorporateName">法人姓名</label>
+                    <div class="col-md-4" data-toggle="tooltip" title="请填写公司法人姓名"  data-placement="right">
+                        <input class="form-control" name="InputCorporateName" type="text" placeholder="Corporate Name" id="InputCorporateName">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="col-md-6 col-md-offset-3"  >
+                    <label class="col-md-3 col-md-offset-2 control-label" for="InputCorporateNumber">法人电话</label>
+                    <div class="col-md-4" data-toggle="tooltip" title="请填写公司法人姓名"  data-placement="right">
+                        <input class="form-control" name="InputCorporateNumber" type="tel" placeholder="Corporate Tel" id="InputCorporateNumber">
                     </div>
                 </div>
             </div>
@@ -174,47 +192,32 @@
                 </div>
             </div>
 
+
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-3">
-                    <label class="col-md-3 col-md-offset-2 control-label" for="InputPasswordAgain">确认密码</label>
-                    <div class="col-md-4">
-                        <input type="password" name="InputPasswordAgain" placeholder="Password" class="form-control" id="InputPasswordAgain">
+                    <label class="col-md-3 col-md-offset-2 control-label" for="InputDistrict">驾校所在地区</label>
+                    <!--城市联动核心代码-->
+                    <div class="docs-methods">
+                            <div id="distpicker">
+                                <div class="form-group">
+                                    <div class="col-md-5">
+                                        <input id="city-picker3" name="InputDistrict" id="InputDistrict" class="form-control " readonly type="text" data-toggle="city-picker">
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-6 col-md-offset-3">
-                    <label class="col-md-3 col-md-offset-2 control-label" for="InputEmail">负责人手机号</label>
-                    <div class="col-md-4" data-toggle="tooltip" title="将发送验证码至该手机号"  data-placement="right" >
-                        <input type="tel" name="InputEmail" placeholder="Telphone" class="form-control" id="InputEmail">
+                <div class="col-md-6 col-md-offset-3" >
+                    <label class="col-md-3 col-md-offset-2 control-label"for="InputDetailedLocation">驾校详细地址</label>
+                    <div class="col-md-5">
+                        <textarea class="form-control" name="InputDetailedLocation" id="InputDetailedLocation" placeholder="Detailed Location" rows="2"></textarea>
+                        <!--<input class="form-control" name="InputDetailedLocation" type="text" placeholder="Detailed Location" id="InputDetailedLocation">-->
                     </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-3">
-                    <label class="col-md-3 col-md-offset-2 control-label" for="inputCode">手机验证码</label>
-                    <div class="col-md-4">
-                        <input type="text" name="InputNumber" placeholder="Verification Code" class="form-control" id="inputCode">
-                    </div>
-                    <!--<a href="" class="btn btn-primary btn-sm">验证码</a>-->
-                    <button class="btn btn-info btn-sm">获取验证码</button>
-                </div>
-
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="checkbox col-md-offset-5">
-                        <label>
-                            <input type="checkbox">
-                            我已浏览并接受<a href="" style="color: #25aeff">服务条款</a>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-3" >
                     <div class="col-md-5 col-md-offset-5">
@@ -225,9 +228,54 @@
 
             </div>
         </form>
-
     </div>
 
+    <!--上传三证-->
+    <div class="container"  style="border: 1px solid black">
+        <!--进度条-->
+        <div class=" col-md-offset-3 col-md-6">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"  style="width: 33.3%">
+                    Step1:基本信息
+                </div>
+                <div class="progress-bar progress-bar-striped progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"  style="width: 33.3%">
+                    Step2:驾校详情
+                </div>
+                <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuemin="0" aria-valuemax="100"  style="width: 33.3%">
+                    Step3：上传相关证件
+                </div>
+            </div>
+        </div>
+
+        <form class="form-horizontal" role="form"  >
+            <div class="form-group ">
+                <div class="col-md-6 col-md-offset-3"  >
+                    <label class="col-md-4 col-md-offset-2 control-label" for="InputCorporateId">法人身份证头像页</label>
+                    <div class="col-md-4" data-toggle="tooltip" title="请填写工商局注册的公司名称"  data-placement="right">
+                        <input class="" name="InputCorporateId" type="file" id="InputCorporateId">
+                        <!--<p class="help-block">选择你需要的文件</p>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3" >
+                    <div class="col-md-5 col-md-offset-5">
+                        <button type="button" class="btn btn-primary">上一页</button>&emsp;&emsp;&emsp;
+                        <button style="" type="submit" class="btn btn-primary">提交</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <!--城市联动JS-->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/city-picker.data.js"></script>
+    <script src="js/city-picker.js"></script>
+    <script src="js/main.js"></script>
     <script>
         $("#nav").load("nav.html");//导入导航页面
         $('[data-toggle="tooltip"]').tooltip();  //初始化
