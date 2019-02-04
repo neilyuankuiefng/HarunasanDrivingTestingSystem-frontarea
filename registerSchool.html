@@ -9,6 +9,9 @@
     <!--城市联动必要样式-->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="css/city-picker.css" rel="stylesheet" type="text/css" />
+    <!--上传图片必要样式和JS-->
+    <link rel="stylesheet" href="css/bootstrap-fileinput.css">
+    <script src="js/bootstrap-fileinput.js"></script>
     <title>欢迎注册成为秋名山驾校用户</title>
 </head>
     <style>
@@ -214,7 +217,6 @@
                     <label class="col-md-3 col-md-offset-2 control-label"for="InputDetailedLocation">驾校详细地址</label>
                     <div class="col-md-5">
                         <textarea class="form-control" name="InputDetailedLocation" id="InputDetailedLocation" placeholder="Detailed Location" rows="2"></textarea>
-                        <!--<input class="form-control" name="InputDetailedLocation" type="text" placeholder="Detailed Location" id="InputDetailedLocation">-->
                     </div>
                 </div>
             </div>
@@ -250,10 +252,66 @@
         <form class="form-horizontal" role="form"  >
             <div class="form-group ">
                 <div class="col-md-6 col-md-offset-3"  >
-                    <label class="col-md-4 col-md-offset-2 control-label" for="InputCorporateId">法人身份证头像页</label>
-                    <div class="col-md-4" data-toggle="tooltip" title="请填写工商局注册的公司名称"  data-placement="right">
-                        <input class="" name="InputCorporateId" type="file" id="InputCorporateId">
-                        <!--<p class="help-block">选择你需要的文件</p>-->
+                    <label class="col-md-4 col-md-offset-2 control-label" for="InputCorporateId">法人手持身份证相片</label>
+                    <div class="col-md-5">
+                        <div class="fileinput fileinput-new" data-provides="fileinput" >
+                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                <img src="${companyInfo.image}" alt="" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                            <div>
+                            <span class="btn default btn-file">
+                            <span class="fileinput-new"><a href="" class="btn btn-info">选择图片</a></span>
+                            <span class="fileinput-exists"><a href="" class="btn btn-info">更改</a></span>
+                            <input type="file" name="InputCorporateId" id="InputCorporateId" /></span>
+                                <span href="#" class="btn default fileinput-exists" data-dismiss="fileinput"><a href="" class="btn btn-info">移除</a></span>
+                                <p class="">1、请被授权人手持身份证正面合照，上传。 <br>2、JPG或PNG格式，图片大小不能超过2MB。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="col-md-6 col-md-offset-3"  >
+                    <label class="col-md-4 col-md-offset-2 control-label" for="InputCertificationlicense">驾校信息管理授权书</label>
+                    <div class="col-md-5">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                <img src="${companyInfo.image}" alt="" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                            <div>
+                            <span class="btn default btn-file">
+                            <span class="fileinput-new"><a href="" class="btn btn-info">选择图片</a></span>
+                            <span class="fileinput-exists"><a href="" class="btn btn-info">更改</a></span>
+                            <input type="file" name="InputCorporateId" id="InputCertificationlicense" /></span>
+                                <span href="#" class="btn default fileinput-exists" data-dismiss="fileinput"><a href="" class="btn btn-info">移除</a></span>
+                                <p class="">1、将加盖公章后的授权书扫描或拍照，然后上传。<br>2、JPG或PNG格式，图片大小不能超过2MB。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="col-md-6 col-md-offset-3"  >
+                    <label class="col-md-4 col-md-offset-2 control-label" for="InputBusinessLicense">营业执照</label>
+                    <div class="col-md-5">
+                        <div class="fileinput fileinput-new" data-provides="fileinput" id="uploadImageDiv">
+                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                <img src="${companyInfo.image}" alt="" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                            <div>
+                            <span class="btn default btn-file">
+                            <span class="fileinput-new"><a href="" class="btn btn-info">选择图片</a></span>
+                            <span class="fileinput-exists"><a href="" class="btn btn-info">更改</a></span>
+                            <input type="file" name="InputCorporateId" id="InputBusinessLicense" /></span>
+                                <span href="#" class="btn default fileinput-exists" data-dismiss="fileinput"><a href="" class="btn btn-info">移除</a></span>
+                                <p class="">1、将经营许可证复印<br>2、该复印件加盖公章<br>3、将加盖公章后的复印件扫描或拍照，然后上传。<br>4、JPG或PNG格式，图片大小不能超过2MB。</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -270,6 +328,7 @@
         </form>
     </div>
 
+
     <!--城市联动JS-->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
@@ -279,6 +338,66 @@
     <script>
         $("#nav").load("nav.html");//导入导航页面
         $('[data-toggle="tooltip"]').tooltip();  //初始化
+    </script>
+    <!--上传图片必要JavaScript-->
+    <script>
+        var url = '';
+        $("#uploadImage").fileupload({
+            url : ROOT + "/security/company/uploadFile",
+            dataType : 'json',
+            autoUpload : false,
+            acceptFileTypes : /(gif|jpe?g|png)$/i,
+            maxFileSize : 1000000, // 1 MB
+            imageMaxWidth : 100,
+            imageMaxHeight : 100,
+            messages : {
+                acceptFileTypes : '文件类型不匹配',
+                maxFileSize : '文件过大',
+                minFileSize : '文件过小'
+            }
+        }).on("fileuploadadd", function(e, data) {
+            // 当文件添加上去时候调用
+            $("#titleImageError").html("");
+            data.submit()
+        }).on("fileuploaddone", function(e, data) {
+            // 上传完成时调用
+            if (data.result.returnState == "ERROR") {
+                alert("上传失败")
+                return;
+            }
+            url = data.result.returnData.url;
+        });
+
+        function updateMsg() {
+            $.ajax({
+                url : ROOT + "/security/company/updateInfo",
+                data : {
+                    id : $("#companyId").val(),
+                    image : url,
+                    companyName : $("#companyName").val(),
+                    companySite : $("#companySite").val(),
+                    companyLinker : $("#companyLinker").val(),
+                    companyTel : $("#companyTel").val()
+                },
+                type : "post",
+                success : function(data) {
+                    if (data.returnState == "OK") {
+                        layer.msg('操作成功', {
+                            icon : 6,
+                            shade : 0.01,
+                            offset : [ '57px', '1100px' ]
+                        });
+                        $table.bootstrapTable('refresh');
+                    } else {
+                        layer.msg('操作失败', {
+                            icon : 5,
+                            shade : 0.01,
+                            offset : [ '90px', '900px' ]
+                        });
+                    }
+                }
+            });
+        }
     </script>
 
 </body>
