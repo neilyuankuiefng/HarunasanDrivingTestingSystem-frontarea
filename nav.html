@@ -9,6 +9,11 @@
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/loginstyles.css" />
+    <script>
+        $.ajaxSetup({
+            cache: false //关闭AJAX相应的缓存
+        });
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-inverse  navbar-fixed-top" role="navigation">
@@ -20,11 +25,11 @@
             <div id="navbar">
                 <ul class="nav navbar-nav" id="MainTab" >
                     <li id="mainpage" class="active"><a href="" onclick="window.location.href='index'">主页</a></li>
-                    <li><a href="">科目一</a></li>
-                    <li><a href="">科目四</a></li>
-                    <li><a href="">驾考资讯</a></li>
-                    <li><a href="">学车视频</a></li>
-                    <li><a href="">买车推荐</a></li>
+                    <li id="subjectOne"><a href="">科目一</a></li>
+                    <li id="subjectTwo"><a href="">科目四</a></li>
+                    <li id="testInfo"><a href="">驾考资讯</a></li>
+                    <li id="drivingVideo"><a href="">学车视频</a></li>
+                    <li id="buyCommend"><a href="">买车推荐</a></li>
                 </ul>
             </div>
 
@@ -123,7 +128,6 @@
             e.preventDefault();
             $(this).tab("show");
         });
-
     </script>
 </body>
 

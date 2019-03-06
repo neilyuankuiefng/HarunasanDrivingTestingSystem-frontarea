@@ -333,7 +333,11 @@
     <script src="js/city-picker.js"></script>
     <script src="js/maincity.js"></script>
     <script>
-        $("#nav").load("nav.html");//导入导航页面
+        $("#nav").load("nav.html",function () {
+            //在载入完成之后改变状态
+            $("#mainpage").removeClass("active")
+            $("#register").addClass("active");
+        });
         $('[data-toggle="tooltip"]').tooltip();  //初始化
     </script>
     <!--上传图片必要JavaScript-->
