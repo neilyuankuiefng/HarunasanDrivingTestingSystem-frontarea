@@ -13,7 +13,7 @@ $(document).ready(function () {
     var InputPassword = $("#InputPassword");
 
     DetailInfo.hide();
-    // CertificationInfo.hide();
+    CertificationInfo.hide();
 
 
     //首先将表格设置为不可见，在加载完成后设置为可见，以回避城市联动栏过长的bug
@@ -21,9 +21,21 @@ $(document).ready(function () {
 
     //点击第一张表格下一页，显示第二张表格(检查每个DIV是否有has-success属性) ?? 验证码方面填上手机验证码判断
     $("#BaseInfoNextBtn").click(function () {
+        var checkBoxAcceptLaw = $("#checkBoxAcceptLaw");
+        var checkBoxAcceptLawFalseTips = $("#checkBoxAcceptLawFalseTips");
         checkBaseInfo();
+        //服务条款勾选验证
+        if(!checkBoxAcceptLaw.is(':checked')){
+
+            checkBoxAcceptLawFalseTips.removeClass("hidden");
+            checkBoxAcceptLawFalseTips.html("请接受我们的服务条款");
+
+        }else{
+            checkBoxAcceptLawFalseTips.addClass("hidden");
+        }
+
         if ($("#InputEmailDiv").hasClass("has-success")  && $("#InputSchoolNameDiv").has("has-success") && $("#InputPasswordDiv").has("has-success") &&
-            $("#InputPasswordAgainDiv").hasClass("has-success") &&  $("#InputChargerTelDiv").has("has-success")
+            $("#InputPasswordAgainDiv").hasClass("has-success") &&  $("#InputChargerTelDiv").has("has-success") && checkBoxAcceptLaw.is(':checked')
         ){
             setTimeout(showSchoolInfo,1000);
             function showSchoolInfo() {
@@ -40,14 +52,12 @@ $(document).ready(function () {
         && $("#InputSocialCodeDiv").hasClass("has-success") && $("#InputEnbarkTimeDiv").hasClass("has-success") && $("#InputDetailedLocationDiv").hasClass("has-success")
             && $("#InputDistrictDiv").hasClass("has-success")
         ){
-            alert("OK");
             setTimeout(showCertificationInfo,1000);
             function showCertificationInfo() {
                 CertificationInfo.show(300);
                 DetailInfo.hide(300);
             }
         }else{
-            alert("False");
         }
     });
 
@@ -152,7 +162,8 @@ $(document).ready(function () {
             //如果密码为6为及以下，就算字母、数字、特殊字符三项都包括，强度也是弱的
         }
     });
-
+     var InputPasswordAgain = $("#InputPasswordAgain");
+    InputPasswordAgain.blur(validatePasswordAgain);
     //邮箱完整性验证
     function validateEmail() {
         //验证邮箱

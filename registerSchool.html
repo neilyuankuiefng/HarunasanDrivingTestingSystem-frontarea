@@ -20,8 +20,8 @@
 </head>
     <style>
         body{
-            padding: 50px;   /*空出导航页面位置*/
-        }
+             padding: 50px;   /*空出导航页面位置*/
+         }
         /*密码强度CSS样式*/
         .tbl-txt{font-size:14px;}
         .tbl-txt input{padding:0 5px; height:22px; line-height:22px; margin-bottom:6px;}
@@ -156,8 +156,9 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="checkbox col-md-offset-5">
                         <label>
-                            <input type="checkbox">
+                            <input type="checkbox" id="checkBoxAcceptLaw">
                             我已浏览并接受<a href="" style="color: #25aeff">服务条款</a>
+                            <span id="checkBoxAcceptLawFalseTips" style="color: #bd2a31;" class="hidden"></span>
                         </label>
                     </div>
                 </div>
@@ -393,65 +394,65 @@
     <script src="js/city-picker.js"></script>
     <script src="js/maincity.js"></script>
     <!--上传图片必要JavaScript-->
-    <script>
-        var url = '';
-        $("#uploadImage").fileupload({
-            url : ROOT + "/security/company/uploadFile",
-            dataType : 'json',
-            autoUpload : false,
-            acceptFileTypes : /(gif|jpe?g|png)$/i,
-            maxFileSize : 1000000, // 1 MB
-            imageMaxWidth : 100,
-            imageMaxHeight : 100,
-            messages : {
-                acceptFileTypes : '文件类型不匹配',
-                maxFileSize : '文件过大',
-                minFileSize : '文件过小'
-            }
-        }).on("fileuploadadd", function(e, data) {
-            // 当文件添加上去时候调用
-            $("#titleImageError").html("");
-            data.submit()
-        }).on("fileuploaddone", function(e, data) {
-            // 上传完成时调用
-            if (data.result.returnState == "ERROR") {
-                alert("上传失败")
-                return;
-            }
-            url = data.result.returnData.url;
-        });
+    <!--<script>-->
+        <!--var url = '';-->
+        <!--$("#uploadImage").fileupload({-->
+            <!--url : ROOT + "/security/company/uploadFile",-->
+            <!--dataType : 'json',-->
+            <!--autoUpload : false,-->
+            <!--acceptFileTypes : /(gif|jpe?g|png)$/i,-->
+            <!--maxFileSize : 1000000, // 1 MB-->
+            <!--imageMaxWidth : 100,-->
+            <!--imageMaxHeight : 100,-->
+            <!--messages : {-->
+                <!--acceptFileTypes : '文件类型不匹配',-->
+                <!--maxFileSize : '文件过大',-->
+                <!--minFileSize : '文件过小'-->
+            <!--}-->
+        <!--}).on("fileuploadadd", function(e, data) {-->
+            <!--// 当文件添加上去时候调用-->
+            <!--$("#titleImageError").html("");-->
+            <!--data.submit()-->
+        <!--}).on("fileuploaddone", function(e, data) {-->
+            <!--// 上传完成时调用-->
+            <!--if (data.result.returnState == "ERROR") {-->
+                <!--alert("上传失败")-->
+                <!--return;-->
+            <!--}-->
+            <!--url = data.result.returnData.url;-->
+        <!--});-->
 
-        function updateMsg() {
-            $.ajax({
-                url : ROOT + "/security/company/updateInfo",
-                data : {
-                    id : $("#companyId").val(),
-                    image : url,
-                    companyName : $("#companyName").val(),
-                    companySite : $("#companySite").val(),
-                    companyLinker : $("#companyLinker").val(),
-                    companyTel : $("#companyTel").val()
-                },
-                type : "post",
-                success : function(data) {
-                    if (data.returnState == "OK") {
-                        layer.msg('操作成功', {
-                            icon : 6,
-                            shade : 0.01,
-                            offset : [ '57px', '1100px' ]
-                        });
-                        $table.bootstrapTable('refresh');
-                    } else {
-                        layer.msg('操作失败', {
-                            icon : 5,
-                            shade : 0.01,
-                            offset : [ '90px', '900px' ]
-                        });
-                    }
-                }
-            });
-        }
-    </script>
+        <!--function updateMsg() {-->
+            <!--$.ajax({-->
+                <!--url : ROOT + "/security/company/updateInfo",-->
+                <!--data : {-->
+                    <!--id : $("#companyId").val(),-->
+                    <!--image : url,-->
+                    <!--companyName : $("#companyName").val(),-->
+                    <!--companySite : $("#companySite").val(),-->
+                    <!--companyLinker : $("#companyLinker").val(),-->
+                    <!--companyTel : $("#companyTel").val()-->
+                <!--},-->
+                <!--type : "post",-->
+                <!--success : function(data) {-->
+                    <!--if (data.returnState == "OK") {-->
+                        <!--layer.msg('操作成功', {-->
+                            <!--icon : 6,-->
+                            <!--shade : 0.01,-->
+                            <!--offset : [ '57px', '1100px' ]-->
+                        <!--});-->
+                        <!--$table.bootstrapTable('refresh');-->
+                    <!--} else {-->
+                        <!--layer.msg('操作失败', {-->
+                            <!--icon : 5,-->
+                            <!--shade : 0.01,-->
+                            <!--offset : [ '90px', '900px' ]-->
+                        <!--});-->
+                    <!--}-->
+                <!--}-->
+            <!--});-->
+        <!--}-->
+    <!--</script>-->
 
 </body>
 </html>
