@@ -1,3 +1,11 @@
+.schoolDetailContent{
+    font-size: 18px;
+}
+.schoolDetailContentDiv{
+    border:1px solid red;
+    padding-top: 10px;
+}
+
 .schoolPrice{
     float: right;
     color: #ce3e00;
@@ -100,4 +108,20 @@ div.lq-score>ul:after {
 
 .classCommendSchoolName{
     /*color: #ff5a8c;*/
+}
+
+/*驾校详情课程*/
+
+.schoolDetailClasses tbody tr th:first-child{
+    color: #3250b1;
+}
+
+.schoolDetailClasses tbody tr th:nth-child(2){
+    color: #ce3e00;
+    font-weight: normal;
+}
+
+.schoolDetailClasses tbody tr th:nth-child(3){
+    color: #ce0f0d;
+    font-weight: normal;
 }
