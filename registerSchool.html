@@ -229,6 +229,18 @@
                 </div>
             </div>
 
+            <div class="form-group ">
+                <div class="col-md-10 col-md-offset-1 has-feedback" id="InputEnrollTelDiv">
+                    <label class="col-md-3 col-md-offset-2 control-label" for="InputCorporateNumber">报名电话</label>
+                    <div class="col-md-3" data-toggle="tooltip" title="请填写公司法人电话"  data-placement="right">
+                        <input class="form-control" name="InputCorporateNumber" type="tel" placeholder="Enroll Tel" id="InputEnrollTel">
+                        <span id="InputEnrollTelGlyTrue" class="glyphicon glyphicon-ok form-control-feedback hidden" aria-hidden="true"></span>
+                        <span id="InputEnrollTelGlyFalse" class="glyphicon glyphicon-remove form-control-feedback hidden" aria-hidden="true"></span>
+                        <span id="InputEnrollTelFalseTip" style="color: #bd2a31;" class="hidden"></span>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <div class="col-md-10 col-md-offset-1 has-feedback" id="InputSocialCodeDiv">
                     <label class="col-md-3 col-md-offset-2 control-label" for="InputSocialCode">社会信用代码</label>
@@ -245,7 +257,7 @@
                 <div class="col-md-10 col-md-offset-1 has-feedback" id="InputEnbarkTimeDiv">
                     <label class="col-md-3 col-md-offset-2 control-label" for="InputEnbarkTime">驾校成立时间</label>
                     <div class="col-md-3">
-                        <input class="form-control" name="InputEnbarkTime" type="date" placeholder="Password" id="InputEnbarkTime">
+                        <input class="form-control" name="InputEnbarkTime" type="date" id="InputEnbarkTime">
                         <span id="InputEnbarkTimeGlyTrue" class="glyphicon glyphicon-ok form-control-feedback hidden" aria-hidden="true"></span>
                         <span id="InputEnbarkTimeGlyFalse" class="glyphicon glyphicon-remove form-control-feedback hidden" aria-hidden="true"></span>
                     </div>
@@ -393,66 +405,7 @@
     <script src="js/city-picker.data.js"></script>
     <script src="js/city-picker.js"></script>
     <script src="js/maincity.js"></script>
-    <!--上传图片必要JavaScript-->
-    <!--<script>-->
-        <!--var url = '';-->
-        <!--$("#uploadImage").fileupload({-->
-            <!--url : ROOT + "/security/company/uploadFile",-->
-            <!--dataType : 'json',-->
-            <!--autoUpload : false,-->
-            <!--acceptFileTypes : /(gif|jpe?g|png)$/i,-->
-            <!--maxFileSize : 1000000, // 1 MB-->
-            <!--imageMaxWidth : 100,-->
-            <!--imageMaxHeight : 100,-->
-            <!--messages : {-->
-                <!--acceptFileTypes : '文件类型不匹配',-->
-                <!--maxFileSize : '文件过大',-->
-                <!--minFileSize : '文件过小'-->
-            <!--}-->
-        <!--}).on("fileuploadadd", function(e, data) {-->
-            <!--// 当文件添加上去时候调用-->
-            <!--$("#titleImageError").html("");-->
-            <!--data.submit()-->
-        <!--}).on("fileuploaddone", function(e, data) {-->
-            <!--// 上传完成时调用-->
-            <!--if (data.result.returnState == "ERROR") {-->
-                <!--alert("上传失败")-->
-                <!--return;-->
-            <!--}-->
-            <!--url = data.result.returnData.url;-->
-        <!--});-->
 
-        <!--function updateMsg() {-->
-            <!--$.ajax({-->
-                <!--url : ROOT + "/security/company/updateInfo",-->
-                <!--data : {-->
-                    <!--id : $("#companyId").val(),-->
-                    <!--image : url,-->
-                    <!--companyName : $("#companyName").val(),-->
-                    <!--companySite : $("#companySite").val(),-->
-                    <!--companyLinker : $("#companyLinker").val(),-->
-                    <!--companyTel : $("#companyTel").val()-->
-                <!--},-->
-                <!--type : "post",-->
-                <!--success : function(data) {-->
-                    <!--if (data.returnState == "OK") {-->
-                        <!--layer.msg('操作成功', {-->
-                            <!--icon : 6,-->
-                            <!--shade : 0.01,-->
-                            <!--offset : [ '57px', '1100px' ]-->
-                        <!--});-->
-                        <!--$table.bootstrapTable('refresh');-->
-                    <!--} else {-->
-                        <!--layer.msg('操作失败', {-->
-                            <!--icon : 5,-->
-                            <!--shade : 0.01,-->
-                            <!--offset : [ '90px', '900px' ]-->
-                        <!--});-->
-                    <!--}-->
-                <!--}-->
-            <!--});-->
-        <!--}-->
-    <!--</script>-->
 
 </body>
 </html>
