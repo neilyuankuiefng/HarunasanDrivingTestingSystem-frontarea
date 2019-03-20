@@ -23,22 +23,20 @@ $(document).ready(function () {
 
         if (
             $("#InputUserEmailDiv").hasClass("has-success")  &&
-            $("#inputUserPasswordDiv").hasClass("has-success") &&
+            $("#InputUserPasswordDiv").hasClass("has-success") &&
             $("#InputUserPasswordAgainDiv").hasClass("has-success") &&
             $("#InputAccountTelDiv").hasClass("has-success") &&
             $("#InputNickNameDiv").hasClass("has-success") &&
             checkBoxAcceptLaw.is(':checked')
         )
             {
-            setTimeout(showSchoolInfo,1000);
-            function showSchoolInfo() {
-                BaseInfo.hide(300);
-                DetailInfo.show(300);
-            }
             alert("success");
         }else{
             alert("False");
         }
+
+        var i = $("#InputUserEmailDiv").hasClass("has-success");
+        alert(i);
     });
 
     function checkInfo() {
