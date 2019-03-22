@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>科目一练习/考试</title>
+    <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <!--引入此页面CSS样式-->
+    <link href="css/subjectOne.css" rel="stylesheet">
+    <style>
+        body{
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav"></div>
+    <div class="container">
+        <div class="page-header">
+            <h1 class="text-center">科目一练习/考试</h1>
+        </div>
+        <!--选择题目按钮组-->
+        <div class="container text-center" >
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary active">章节练习</button>
+                <button type="button" class="btn btn-primary">专项练习</button>
+                <button type="button" class="btn btn-primary">顺序练习</button>
+            </div>
+            <button class="btn btn-success col-md-offset-1">仿真考试</button>
+        </div>
+
+        <div class="container col-md-10 col-md-offset-1" style="margin-top: 20px" >
+            <div class="panel panel-default">
+                <div class="page-header">
+                    <h2 class="col-md-offset-1">科目一小车章节练习<small>(共324题)</small></h2>
+                </div>
+                <div class="panel-body">
+                    <!--选择章节练习模式-->
+                    <div class="choosePracticeModel">
+                    <!--章节练习List-->
+                        <div class="col-md-12">
+                        <ol class="ulSectionPracticeTitle" style="list-style: none">
+                            <li><a href="#" class="col-md-6">道路交通安全法律、法规和规章<small class="totalQuestion">(共123题)</small></a>
+                                <div class="btn-group col-md-5 col-md-offset-1" role="group">
+                                    <button type="button" class="btn btn-default">顺序练习</button>
+                                    <button type="button" class="btn btn-default">随机练习</button>
+                                    <button type="button" class="btn btn-default">查看试题</button>
+                                </div>
+                            </li>
+                            <li><a href="#" class="col-md-6">交通信号<small class="totalQuestion">(共123题)</small></a>
+                                <div class="btn-group col-md-5 col-md-offset-1" role="group">
+                                    <button type="button" class="btn btn-default">顺序练习</button>
+                                    <button type="button" class="btn btn-default">随机练习</button>
+                                    <button type="button" class="btn btn-default">查看试题</button>
+                                </div>
+                            </li>
+                            <li><a href="#" class="col-md-6">安全行车、文明驾驶基础知识<small class="totalQuestion">(共123题)</small></a>
+                                <div class="btn-group col-md-5 col-md-offset-1" role="group">
+                                    <button type="button" class="btn btn-default">顺序练习</button>
+                                    <button type="button" class="btn btn-default">随机练习</button>
+                                    <button type="button" class="btn btn-default">查看试题</button>
+                                </div>
+                            </li>
+                            <li><a href="#" class="col-md-6">机动车驾驶操作相关基础知识<small class="totalQuestion">(共123题)</small></a>
+                                <div class="btn-group col-md-5 col-md-offset-1" role="group">
+                                    <button type="button" class="btn btn-default">顺序练习</button>
+                                    <button type="button" class="btn btn-default">随机练习</button>
+                                    <button type="button" class="btn btn-default">查看试题</button>
+                                </div>
+                            </li>
+
+                        </>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#nav").load("nav.html",function () {
+            // 在载入完成之后改变状态
+            $("#mainpage").removeClass("active");
+            $("#subjectOne").addClass("active");
+        });
+    })
+</script>
+</body>
+</html>

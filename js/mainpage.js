@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-
+    
     var NavSideNav = $(".nav-side-nav");
     //侧边导航栏js
     NavSideNav.children("li").children("a").click(function () {

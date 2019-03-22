@@ -158,3 +158,11 @@ input, button {
 .foot-lnk{
 	text-align:center;
 }
+
+.UserOnlineDiv a{
+	color: #c8c8c8;
+}
+
+.UserOnlineDiv a:nth-child(2){
+	margin-right: 20px;
+}
