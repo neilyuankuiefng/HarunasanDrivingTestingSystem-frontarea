@@ -75,6 +75,7 @@ $(document).ready(function () {
 
     //点击第三页提交,查看数据
     $("#CertificationSubmit").click(function () {
+
     });
 
     //验证基本信息页完整性
@@ -492,10 +493,4 @@ $(document).ready(function () {
             return false;
         }
     }
-    
-    function validateCorporateIDimage() {
-       var InputCorporateId =  $("#InputCorporateId");
-        alert(InputCorporateId.val());
-    }
-
 })

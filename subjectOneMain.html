@@ -8,6 +8,10 @@
     <!--引入此页面CSS样式-->
     <link href="css/subjectOne.css" rel="stylesheet">
     <script src="js/subjectOneMain.js" type="text/javascript"></script>
+    <!--评分JS-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/lq-score.min.js"></script>
+    <link href="css/lq-score.css" rel="stylesheet">
     <style>
         body{
             padding-top: 50px;
@@ -77,6 +81,41 @@
                 </div>
             </div>
         </div>
+
+        <div class="container col-md-10 col-md-offset-1" id="DivSpecialPractice" style="margin-top: 20px" >
+            <div class="panel panel-default">
+                <div class="page-header">
+                    <h2 class="col-md-offset-1">按难易程度<small>(共324题)</small></h2>
+                </div>
+                <div class="panel-body">
+                    <div class="radio col-md-3" style="">
+                        <label style=" padding-top: 0px">
+                            <input type="radio" name="RadioQuestionDifficulties" checked>
+                            简单题
+                            <div id="schoolScore1" style="float:right;padding-left: 0px;margin-left: 10px"></div>
+                        </label>
+
+                    </div>
+
+                    <label>
+                        <input type="radio" name="RadioQuestionDifficulties" >
+                        容易题
+                    </label>
+                    <label>
+                        <input type="radio" name="RadioQuestionDifficulties" >
+                        一般题
+                    </label>
+                    <label>
+                        <input type="radio" name="RadioQuestionDifficulties" >
+                        易错题
+                    </label>
+                    <label>
+                        <input type="radio" name="RadioQuestionDifficulties" >
+                        困难题
+                    </label>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -88,36 +127,7 @@
             $("#mainpage").removeClass("active");
             $("#subjectOne").addClass("active");
         });
-    })
-    function show_hidden(obj) {
-
-        if(obj.style.diaplay == 'block') {
-
-            obj.style.display = 'none';
-
-        } else {
-
-            obj.style.display = 'block';
-
-        }
-
-    }
-
-    var sh = document.getElementById("showHidden");
-
-    sh.click = function() {
-
-        var div1 =  document.getElementById("div1");
-
-        var div2 =  document.getElementById("div2");
-
-        show_hidden(div1);
-
-        show_hidden(div2);
-
-        return false;
-
-    }
+    });
 
 </script>
 </body>
